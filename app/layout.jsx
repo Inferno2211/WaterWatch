@@ -1,4 +1,5 @@
 import { Children } from "react"
+import '@styles/globals.css'
 
 export const metadata = {
     title: "WaterWatch",
