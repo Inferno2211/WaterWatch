@@ -10,7 +10,7 @@ const Header = () => {
 
     const [providers, setProviders] = useState(null);
     const [toggleDropdown, setToggleDropdown] = useState(false);
-    // console.log(session?.user);
+
     useEffect(() => {
         const setUpProviders = async () => {
             const response = await getProviders();
