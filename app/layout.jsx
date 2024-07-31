@@ -2,7 +2,7 @@ import { Children } from "react"
 import '@styles/globals.css'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
-// import '@components/Provider'
+import Provider from "@components/Provider"
 
 export const metadata = {
     title: "WaterWatch",
@@ -13,13 +13,15 @@ const layout = ({children}) => {
     return (
         <html lang="en">
             <body>
-                <div className="main">
-                </div>
+                <Provider>
+                    <div className="main">
+                    </div>
 
-                <main className="app">
-                    <Header />
-                    {children}
-                </main>
+                    <main className="app">
+                        <Header />
+                        {children}
+                    </main>
+                </Provider>
             </body>
         </html>
     )

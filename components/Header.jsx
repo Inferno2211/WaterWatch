@@ -3,20 +3,21 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { signIn, signOut, useSession, getProviders } from 'next-auth/react';
+import Image from "next/image"
 
 const Header = () => {
-    const isUserLoggedIn = true;
+    const { data: session } = useSession();
 
     const [providers, setProviders] = useState(null);
     const [toggleDropdown, setToggleDropdown] = useState(false);
-
+    // console.log(session?.user);
     useEffect(() => {
-        const setProviders = async () => {
+        const setUpProviders = async () => {
             const response = await getProviders();
             setProviders(response);
         };
 
-        // setProviders();
+        setUpProviders();
     }, []);
 
     return (
@@ -27,7 +28,7 @@ const Header = () => {
 
             {/* Desk nav */}
             <div className='sm:flex hidden flex-center gap-5'>
-                {isUserLoggedIn ? (
+                {session?.user ? (
                     <div className='flex gap-3'>
                         <Link href="/create-issue" className='main_btn'>
                             Create Issue
@@ -37,8 +38,16 @@ const Header = () => {
                             Sign Out
                         </button>
 
+                        <div className="vl"></div>
+                        <p className='name'>{session?.user.name}</p>
                         <Link href='/profile' className=''>
-                            Img
+                            <Image
+                                src={session?.user.image}
+                                width={37}
+                                height={37}
+                                className="rounded-full"
+                                alt="profile"
+                            />
                         </Link>
                     </div>
                 ) : (
@@ -55,9 +64,17 @@ const Header = () => {
 
             {/* Mob nav */}
             <div className="sm:hidden flex relative">
-                {isUserLoggedIn ? (
-                    <div className="flex" onClick={() => setToggleDropdown((prev) => !prev)}>
-                        <span>Logo</span>
+                {session?.user ? (
+                    <div className="flex" >
+                        <Image
+                            src={session?.user.image}
+                            width={37}
+                            height={37}
+                            className="rounded-full"
+                            alt="profile"
+                            onClick={() => setToggleDropdown((prev) => !prev)}
+                        />
+
                         {toggleDropdown && (
                             <div className="dropdown">
                                 <Link

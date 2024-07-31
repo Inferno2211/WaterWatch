@@ -21,11 +21,11 @@ nav {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    margin: 10px 5px;
+    /* margin: 10px 5px; */
     padding-top: 3px;
     background-color: white;
     padding: 10px 20px;
-    border-radius: 20px;
+    /* border-radius: 20px; */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
 }
 
@@ -111,12 +111,14 @@ nav a:hover {
     background-color: #1C617F;
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 6px 10px;
     border-radius: 12px;
     cursor: pointer;
     transition: background-color 0.2s;
     font-weight: 500;
     letter-spacing: 0.5px;
+    text-align: center;
+    vertical-align: middle;
 }
 
 .main_btn:hover {
@@ -129,4 +131,16 @@ nav a:hover {
 
 .w-full {
     width: 100%;
+}
+p.name{
+    vertical-align: middle;
+    align-self: center;
+}
+.vl {
+    border-left: 2px solid rgb(134, 134, 134);
+    align-self: center;
+    height: 35px;
+    margin-left: 15px;
+    margin-right: -5px;
+    top: 0;
 }
