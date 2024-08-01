@@ -11,7 +11,7 @@ export const connectToDB = async () => {
     }
     
     try{
-        await mongoose.connect(process.env.MONGO_URI, {
+        await mongoose.connect("mongodb+srv://atulitgaur:sanjayashaS28@cluster0.zbmbdhh.mongodb.net/diyakeliye", {
             dbName: "waterwatch",
             useNewUrlParser: true,
         })

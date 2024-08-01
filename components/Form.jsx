@@ -1,6 +1,26 @@
-import React from 'react';
+'use client';
+
+import { useState } from 'react';
+import Step1 from './Step1';
+import Step2 from './Step2';
+import Step3 from './Step3';
+import Link from 'next/link';
 
 const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
+    const [currentStep, setCurrentStep] = useState(1);
+
+    const handleChange = (input) => (e) => {
+        setPost({ ...post, [input]: e.target.value });
+    };
+
+    const nextStep = () => {
+        setCurrentStep((prev) => prev + 1);
+    };
+
+    const prevStep = () => {
+        setCurrentStep((prev) => prev - 1);
+    };
+
     const handleImageChange = (e) => {
         const file = e.target.files[0];
         if (file) {
@@ -13,61 +33,40 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="max-w-lg mx-auto p-6 bg-white shadow-lg rounded-lg">
-            <div className="mb-4">
-                <label htmlFor="title" className="block text-gray-700 text-sm font-bold mb-2">Title</label>
-                <input
-                    type="text"
-                    id="title"
-                    value={post.title}
-                    onChange={(e) => setPost({ ...post, title: e.target.value })}
-                    required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                />
+        <div>
+            <div className='flex-end mx-3 mb-5 gap-4'>
+                <Link href='/' className='text-white text-sm bg-purple-500 py-2 px-4 rounded focus:outline-none'>
+                    &lt;- Cancel
+                </Link>
             </div>
-
-            <div className="mb-4">
-                <label htmlFor="category" className="block text-gray-700 text-sm font-bold mb-2">Category</label>
-                <input
-                    type="text"
-                    id="category"
-                    value={post.category}
-                    onChange={(e) => setPost({ ...post, category: e.target.value })}
-                    required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                />
+            <div className="max-w-xl mx-auto p-4">
+                {currentStep === 1 && (
+                    <Step1
+                        formData={post}
+                        handleChange={handleChange}
+                        nextStep={nextStep}
+                    />
+                )}
+                {currentStep === 2 && (
+                    <Step2
+                        formData={post}
+                        handleChange={handleChange}
+                        nextStep={nextStep}
+                        prevStep={prevStep}
+                    />
+                )}
+                {currentStep === 3 && (
+                    <Step3
+                        formData={post}
+                        handleImageChange={handleImageChange}
+                        prevStep={prevStep}
+                        submitting={submitting}
+                        type={type}
+                        handleSubmit={handleSubmit}
+                    />
+                )}
             </div>
-
-            <div className="mb-4">
-                <label htmlFor="description" className="block text-gray-700 text-sm font-bold mb-2">Description</label>
-                <textarea
-                    id="description"
-                    value={post.description}
-                    onChange={(e) => setPost({ ...post, description: e.target.value })}
-                    required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                />
-            </div>
-
-            <div className="mb-4">
-                <label htmlFor="image" className="block text-gray-700 text-sm font-bold mb-2">Image</label>
-                <input
-                    type="file"
-                    id="image"
-                    onChange={handleImageChange}
-                    required
-                    className="block w-full text-sm text-gray-500 file:py-2 file:px-4 file:border file:border-gray-300 file:rounded-md file:bg-gray-50 file:text-gray-700 hover:file:bg-gray-100"
-                />
-            </div>
-
-            <button
-                type="submit"
-                disabled={submitting}
-                className="w-full px-4 py-2 bg-indigo-600 text-white font-bold rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 disabled:opacity-50"
-            >
-                {submitting ? `${type}...` : type}
-            </button>
-        </form>
+        </div>
     );
 };
 

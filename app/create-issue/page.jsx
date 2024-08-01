@@ -1,20 +1,21 @@
 'use client';
 
 import { useState } from 'react';
-import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-
 import Form from '@components/Form';
+import { useSession } from 'next-auth/react';
 
 const CreateIssue = () => {
+    const { data: session } = useSession();
     const [submitting, setSubmitting] = useState(false);
     const [post, setPost] = useState({
         title: '',
-        category: '',
+        tags: '',
         description: '',
+        location: '',
+        image: '',
     });
 
-    // const { data: session } = useSession();
     const router = useRouter();
 
     const createIssue = async (e) => {
@@ -22,11 +23,21 @@ const CreateIssue = () => {
         setSubmitting(true);
 
         try {
+            const data = JSON.stringify({
+                UserId:session?.user.id,
+                title: post.title,
+                tags:post.tags,
+                description:post.description,
+                location:post.location,
+                image:post.image
+            })
+            // console.log(data);
+            // console.log(session?.user);
+            // return;
+
             const response = await fetch('/api/issue/new', {
                 method: 'POST',
-                body: JSON.stringify({
-                    
-                }),
+                body: data
             });
 
             if (response.ok) {
@@ -34,26 +45,27 @@ const CreateIssue = () => {
                     title: '',
                     category: '',
                     description: '',
+                    location: '',
                     image: '',
                 });
                 router.push('/');
             } else {
                 console.error('Failed to create issue');
             }
-            } catch (error) {
-                console.error('Error:', error);
-            } finally {
-                setSubmitting(false);
-            }
+        } catch (error) {
+            console.error('Error:', error);
+        } finally {
+            setSubmitting(false);
+        }
     };
 
     return (
         <Form
-        type="Create"
-        post={post}
-        setPost={setPost}
-        submitting={submitting}
-        handleSubmit={createIssue}
+            type="Create"
+            post={post}
+            setPost={setPost}
+            submitting={submitting}
+            handleSubmit={createIssue}
         />
     );
 };
