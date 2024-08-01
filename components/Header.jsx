@@ -40,7 +40,7 @@ const Header = () => {
 
                         <div className="vl"></div>
                         <p className='name'>{session?.user.name}</p>
-                        <Link href='/profile' className=''>
+                        <Link href='/your-posts' className=''>
                             <Image
                                 src={session?.user.image}
                                 width={37}
