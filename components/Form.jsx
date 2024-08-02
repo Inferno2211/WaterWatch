@@ -34,11 +34,11 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
 
     return (
         <div>
-            <div className='flex-end mx-3 mb-5 gap-4'>
+            {/* <div className='flex-end mx-3 mb-5 gap-4'>
                 <Link href='/' className='text-white text-sm bg-purple-500 py-2 px-4 rounded focus:outline-none'>
                     &lt;- Cancel
                 </Link>
-            </div>
+            </div> */}
             <div className="max-w-xl mx-auto p-4">
                 {currentStep === 1 && (
                     <Step1
