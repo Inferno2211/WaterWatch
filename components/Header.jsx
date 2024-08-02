@@ -53,10 +53,11 @@ const Header = () => {
                 ) : (
                     <>
                         {providers && Object.values(providers).map((provider) => (
-                            <button type="button" key={provider.name}
-                                onClick={() => signIn(provider.id)} className='main_btn'>
+                            <Link href = "/sign-up"
+                                //onClick={() => signIn(provider.id)} 
+                                className='main_btn'>
                                 Sign In
-                            </button>
+                            </Link>
                         ))}
                     </>
                 )}
