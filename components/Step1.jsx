@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from "next/link";
+import ProgressBar from './ProgressBar';
 import Image from "next/image";
 import '@styles/issue.css'
 const Step1 = ({ formData, handleChange, nextStep }) => {
@@ -8,7 +9,11 @@ const Step1 = ({ formData, handleChange, nextStep }) => {
             {/* <div className="navbar"></div> */}
             <div className="content">
                 {/* <div className="sidebar"></div> */}
-                <Image src='/assets/images/1.jpg' width={850} height={40}/>
+                <div className="App">
+                    <div className="progress-line"></div>
+                    <ProgressBar />
+                </div>
+                {/* <Image src='/assets/images/1.jpg' width={850} height={40}/> */}
                 <div className="main-thing">
                 <div className="text">
                     <span className="text__header">

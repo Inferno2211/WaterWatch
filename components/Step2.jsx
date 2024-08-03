@@ -1,21 +1,45 @@
-import React from 'react';
-import Link from 'next/link';
+import React ,{useState}from 'react';
+import ProgressBar from './ProgressBar';
 import Image from 'next/image';
-import { useSession} from 'next-auth/react';
+import { useSession } from 'next-auth/react';
 
 import '@styles/issue.css'
 
 const Step2 = ({ formData, handleChange, nextStep, prevStep }) => {
     const { data: session } = useSession();
+
+    const [dropdownVisible, setDropdownVisible] = useState(false);
+    const [selectedCategory, setSelectedCategory] = useState('');
+
+    const categories = [
+        'Water Pollution',
+        'Water Scarcity',
+        'Water Quality',
+        'Flooding',
+        'Drought'
+    ];
+
+    const handleButtonClick = () => {
+        setDropdownVisible(!dropdownVisible);
+    };
+
+    const handleCategoryClick = (category) => {
+        setSelectedCategory(category);
+        setDropdownVisible(false);
+    };
     return (
         <div className="container">
             {/* <div className="navbar"></div> */}
             <div className="content">
                 {/* <div className="sidebar"></div> */}
                 <div className="main">
-                    <div className="image">
-                        <Image src='/assets/images/2.jpg' width={850} height={40} />
+                    <div className="App">
+                        <ProgressBar />
+                        <div className="progress-line Two"></div>
                     </div>
+                    {/* <div className="image">
+                        <Image src='/assets/images/2.jpg' width={850} height={40} />
+                    </div> */}
                     <div className="text">
                         <span className="text__header">
                             Add Relevant details
@@ -25,16 +49,26 @@ const Step2 = ({ formData, handleChange, nextStep, prevStep }) => {
                         </span>
                     </div>
                     <div className="container__3">
-                    <input
-                        type="text"
-                        placeholder="Add title here"
-                        value={formData.title}
-                        onChange={handleChange('title')}
-                        className="w-full border border-gray-300 rounded p-2 focus:outline-none focus:border-blue-500 mb-4"
+                        <input
+                            type="text"
+                            placeholder={selectedCategory ? ` ${selectedCategory}` : 'Add title here'}
+                            value={formData.title}
+                            onChange={handleChange('title')}
+                            className="w-full border border-gray-300 rounded p-2 focus:outline-none focus:border-blue-500 mb-4"
                         />
                         <div className="category">
                             <span>Category</span>
-                            <button className="label__btn">+ Add label</button>
+                            <button className="label__btn" onClick={handleButtonClick}>+ Add label</button>
+                            {dropdownVisible && (
+                                <ul className="dropdown">
+                                    {categories.map((category, index) => (
+                                        <li key={index} onClick={() => handleCategoryClick(category)}>
+                                            {category}
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
+                    
                         </div>
                         <hr />
                         <div className="description">DESCRIPTION</div>
@@ -59,7 +93,7 @@ const Step2 = ({ formData, handleChange, nextStep, prevStep }) => {
                         <button
                             onClick={prevStep}
                             className="btn bg-gray-500 text-white py-2 px-12 rounded focus:outline-none"
-                            >
+                        >
                             Back
                         </button>
                         <button
@@ -73,5 +107,4 @@ const Step2 = ({ formData, handleChange, nextStep, prevStep }) => {
         </div>
     );
 };
-
 export default Step2;
