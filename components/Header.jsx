@@ -3,14 +3,36 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { signIn, signOut, useSession, getProviders } from 'next-auth/react';
-import Image from "next/image"
-
+import Image from "next/image";
+import "@styles/header.css";
 const Header = () => {
     const { data: session } = useSession();
+    const [searchQuery, setSearchQuery] = useState('');
 
     const [providers, setProviders] = useState(null);
     const [toggleDropdown, setToggleDropdown] = useState(false);
-
+    const handleNotificationClick = () => {
+      window.location.href = 'notifications.html'; // Replace with your actual URL
+    };
+  
+    const handleCommentClick = () => {
+      window.location.href = 'comments.html'; // Replace with your actual URL
+    };
+  
+    const handleLogoutClick = () => {
+      // You can replace this with actual logout logic
+      alert('You have been logged out.');
+      window.location.href = 'login.html'; // Replace with your actual login page URL
+    };
+  
+    const handleGoClick = () => {
+      if (searchQuery) {
+        // Redirect to a search results page with the query as a parameter
+        window.location.href = `search.html?q=${encodeURIComponent(searchQuery)}`; // Replace with your actual search results URL
+      } else {
+        alert('Please enter a search query.');
+      }
+    };
     useEffect(() => {
         const setUpProviders = async () => {
             const response = await getProviders();
@@ -27,34 +49,37 @@ const Header = () => {
             </Link> */}
 
             {/* Desk nav */}
-            <div className='sm:flex hidden flex-center gap-5'><div className="header">
+            <div className='sm:flex hidden flex-center gap-5'>
+            <div className="container">
       <header>
         <div className="logo">WaterWatch</div>
         <div className="header-search-bar">
-          <input
-            type="text"
-            placeholder="Search"
-            // value={searchQuery}
-            // onChange={(e) => setSearchQuery(e.target.value)}
+          <input 
+            type="text" 
+            placeholder="Search" 
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
           />
-          <button className="go-button" 
-        //   onClick={handleSearchClick}
-          >Go</button>
+          <button className="go-button" onClick={handleGoClick}>Go</button>
         </div>
         <div className="header-buttons">
-          <button className="notification-button" title="Notifications"
-        //   onClick={handleNotificationClick}
+          <button 
+            className="notification-button" 
+            title="Notifications" 
+            onClick={handleNotificationClick}
           >
             <i className="fa-regular fa-bell"></i>
           </button>
-          <button className="comment-button" title="Comments" 
-        //   onClick={handleCommentClick}
+          <button 
+            className="comment-button" 
+            title="Comments" 
+            onClick={handleCommentClick}
           >
             <i className="fa-regular fa-comment-dots"></i>
           </button>
         </div>
         <div className="user">
-          <span className='name'>{session?.user.name}</span>
+          <span className="username">{session?.user.name}</span>
           <Link href='/your-posts' className=''>
                             <Image
                                 src={session?.user.image}
@@ -64,30 +89,27 @@ const Header = () => {
                                 alt="profile"
                             />
                         </Link>
+
         </div>
       </header>
-      {/* <div className="main-content">
+      <div className="main-content">
         <aside>
           <nav className="sidebar">
             <div>
               <a href="#">Home</a>
               <a href="#">Explore</a>
-              <a href="#">Your Posts</a>
+              <a href="#">Your Posts</a> 
             </div>
             <div className="sidebar-bottom">
-            <Link href="/create-issue" className='main_btn'>
-                            Create Issue
-                        </Link>
-            <button type='button' onClick={signOut} className='main_btn'>
-                            Sign Out
-                        </button>
+              <button className="report-button">Report an Issue</button>
+              <button className="logout-button" onClick={handleLogoutClick}>Logout</button>
               <a href="#">Help & Feedback</a>
             </div>
           </nav>
         </aside>
-      </div> */}
+      </div>
     </div>
-               </div>
+             </div>
 
             {/* Mob nav */}
             <div className="sm:hidden flex relative">

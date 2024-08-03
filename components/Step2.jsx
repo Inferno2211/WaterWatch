@@ -1,31 +1,75 @@
 import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { useSession} from 'next-auth/react';
+
+import '@styles/issue.css'
 
 const Step2 = ({ formData, handleChange, nextStep, prevStep }) => {
+    const { data: session } = useSession();
     return (
-        <div className="bg-white shadow-md rounded-lg p-6">
-        <div className="mb-4">
-            <input
-            type="text"
-            placeholder="Add location"
-            value={formData.location}
-            onChange={handleChange('location')}
-            className="w-full border border-gray-300 rounded p-2 focus:outline-none focus:border-blue-500"
-            />
-        </div>
-        <div className="flex justify-between">
-            <button
-            onClick={prevStep}
-            className="bg-gray-500 text-white py-2 px-4 rounded focus:outline-none"
-            >
-            Back
-            </button>
-            <button
-            onClick={nextStep}
-            className="bg-blue-500 text-white py-2 px-4 rounded focus:outline-none"
-            >
-            Next
-            </button>
-        </div>
+        <div className="container">
+            {/* <div className="navbar"></div> */}
+            <div className="content">
+                {/* <div className="sidebar"></div> */}
+                <div className="main">
+                    <div className="image">
+                        <Image src='/assets/images/2.jpg' width={850} height={40} />
+                    </div>
+                    <div className="text">
+                        <span className="text__header">
+                            Add Relevant details
+                        </span>
+                        <span className="text__sub">
+                            Make your problems heard to the right people.
+                        </span>
+                    </div>
+                    <div className="container__3">
+                    <input
+                        type="text"
+                        placeholder="Add title here"
+                        value={formData.title}
+                        onChange={handleChange('title')}
+                        className="w-full border border-gray-300 rounded p-2 focus:outline-none focus:border-blue-500 mb-4"
+                        />
+                        <div className="category">
+                            <span>Category</span>
+                            <button className="label__btn">+ Add label</button>
+                        </div>
+                        <hr />
+                        <div className="description">DESCRIPTION</div>
+                        <div className="description__box">
+                            <Image
+                                src={session?.user.image}
+                                width={37}
+                                height={37}
+                                className="rounded-full"
+                                alt="profile"
+                            />
+                            <textarea
+                                value={formData.description}
+                                onChange={handleChange('description')}
+                                className="w-full border border-gray-300 rounded p-2 focus:outline-none focus:border-blue-500"
+                                placeholder="Add a more detailed description..."
+                                rows="4"
+                            />
+                        </div>
+                    </div>
+                    <div className='btn-row flex'>
+                        <button
+                            onClick={prevStep}
+                            className="btn bg-gray-500 text-white py-2 px-12 rounded focus:outline-none"
+                            >
+                            Back
+                        </button>
+                        <button
+                            onClick={nextStep}
+                            className="btn bg-blue-500 text-white py-2 px-12 rounded focus:outline-none mr-12">
+                            Next
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };

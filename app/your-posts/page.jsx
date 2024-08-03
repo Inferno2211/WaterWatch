@@ -51,7 +51,7 @@ const YourPosts = () => {
         <div className="pl-0 md:pl-64 transition-all" id="main">
             <div className="p-4">
                 <div className="relative">
-                    <img src="/assets/image/bg.svg" className="w-full h-72 object-cover rounded-lg" alt="" />
+                    <Image src="/assets/images/bg.svg" className="w-full h-72 object-cover rounded-lg" alt="" />
                 </div>
                 <div className="hello">
                     <img

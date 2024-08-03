@@ -1,3 +1,5 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -9,6 +11,7 @@ body {
     display: flex;
     flex-direction: column;
     height: 100vh;
+    width: 100%;
 }
 
 header {
@@ -19,6 +22,7 @@ header {
     padding: 10px 20px;
     border-bottom: 1px solid #e0e0e0;
     height: 50px;
+    width: 100%;
 }
 
 .logo {
@@ -116,7 +120,7 @@ header {
     cursor: pointer;
 }
 
-.search-bar {
+.header-search-bar {
     display: flex;
     align-items: center;
 }
@@ -149,7 +153,7 @@ aside nav a:hover {
 }
 
 
-.next {
+/* .next {
     display: block;
     width: 100%;
     padding: 10px;
@@ -159,9 +163,9 @@ aside nav a:hover {
     cursor: pointer;
     border-radius: 4px;
     font-size: 16px;
-}
+} */
 
-nav.sidebar {
+.sidebar {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -171,7 +175,7 @@ nav.sidebar {
     text-align: center;
 }
 
-button {
+.sidebar-bottom button {
     background-color: #1C617F;
     color: #ddd;
     border: none;
