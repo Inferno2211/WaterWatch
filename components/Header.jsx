@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
@@ -22,25 +22,40 @@ const Header = () => {
 
     return (
         <nav className='flex-between w-full mb-16 pt-3'>
-            <Link href='/' className='flex gap-2 flex-center'>
+            {/* <Link href='/' className='flex gap-2 flex-center'>
                 <h1>WaterWatch</h1>
-            </Link>
+            </Link> */}
 
             {/* Desk nav */}
-            <div className='sm:flex hidden flex-center gap-5'>
-                {session?.user ? (
-                    <div className='flex gap-3'>
-                        <Link href="/create-issue" className='main_btn'>
-                            Create Issue
-                        </Link>
-
-                        <button type='button' onClick={signOut} className='main_btn'>
-                            Sign Out
-                        </button>
-
-                        <div className="vl"></div>
-                        <p className='name'>{session?.user.name}</p>
-                        <Link href='/your-posts' className=''>
+            <div className='sm:flex hidden flex-center gap-5'><div className="header">
+      <header>
+        <div className="logo">WaterWatch</div>
+        <div className="header-search-bar">
+          <input
+            type="text"
+            placeholder="Search"
+            // value={searchQuery}
+            // onChange={(e) => setSearchQuery(e.target.value)}
+          />
+          <button className="go-button" 
+        //   onClick={handleSearchClick}
+          >Go</button>
+        </div>
+        <div className="header-buttons">
+          <button className="notification-button" title="Notifications"
+        //   onClick={handleNotificationClick}
+          >
+            <i className="fa-regular fa-bell"></i>
+          </button>
+          <button className="comment-button" title="Comments" 
+        //   onClick={handleCommentClick}
+          >
+            <i className="fa-regular fa-comment-dots"></i>
+          </button>
+        </div>
+        <div className="user">
+          <span className='name'>{session?.user.name}</span>
+          <Link href='/your-posts' className=''>
                             <Image
                                 src={session?.user.image}
                                 width={37}
@@ -49,19 +64,30 @@ const Header = () => {
                                 alt="profile"
                             />
                         </Link>
-                    </div>
-                ) : (
-                    <>
-                        {providers && Object.values(providers).map((provider) => (
-                            <Link href = "/sign-up"
-                                //onClick={() => signIn(provider.id)} 
-                                className='main_btn'>
-                                Sign In
-                            </Link>
-                        ))}
-                    </>
-                )}
+        </div>
+      </header>
+      {/* <div className="main-content">
+        <aside>
+          <nav className="sidebar">
+            <div>
+              <a href="#">Home</a>
+              <a href="#">Explore</a>
+              <a href="#">Your Posts</a>
             </div>
+            <div className="sidebar-bottom">
+            <Link href="/create-issue" className='main_btn'>
+                            Create Issue
+                        </Link>
+            <button type='button' onClick={signOut} className='main_btn'>
+                            Sign Out
+                        </button>
+              <a href="#">Help & Feedback</a>
+            </div>
+          </nav>
+        </aside>
+      </div> */}
+    </div>
+               </div>
 
             {/* Mob nav */}
             <div className="sm:hidden flex relative">

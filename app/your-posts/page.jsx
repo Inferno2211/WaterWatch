@@ -2,7 +2,7 @@
 
 import IssueCard from '@components/IssueCard';
 import React, { useState, useEffect } from 'react';
-// import './style.css';
+import './style.css';
 
 const IssueCardList = ({ data, handleTagClick }) => {
         return (
@@ -56,16 +56,15 @@ const YourPosts = () => {
                 <div className="hello">
                     <img
                         src="https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8bWFufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
-                        className="fixed w-28 h-28 object-cover rounded-full"
+                        className=" lol flex items-center justify-center w-28 h-28 object-cover rounded-full"
                         alt=""
                     />
                 </div>
-                <br /><br />
                 <div className="flex items-center justify-center">
                     <h2 className="text-2xl font-semibold">Swapnil Singh</h2>
                 </div>
                 <span className="flex items-center justify-center text-lg text-gray-500">@swapnil2468</span>
-                <p className="mt-3">My Profile</p>
+                <p className='my-profile'>My Profile</p>
                 <div className="profile-link">
                     <input type="text" value="https://www.profilelink.com" id="profileLink" readOnly />
                     <div className="copy-icon" onClick={copyLink}>Copy</div>
