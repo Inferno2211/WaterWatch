@@ -3,10 +3,11 @@
 import { useState, useEffect} from 'react'
 import IssueCard from './IssueCard';
 import { handleClientScriptLoad } from 'next/script';
+import '@styles/globals.css';
 
 const IssueCardList = ({ data, handleTagClick }) => {
     return (
-        <div className='flex mt-16 prompt_layout'>
+        <div className='feed'>
             {data.map((post) => (
                 <IssueCard 
                     key={post._id}
@@ -34,7 +35,7 @@ const Feed = () => {
     }, []);
 
     return (
-        <section className='feed'>
+        <section className='m-5'>
             <IssueCardList
                 data={posts}
                 handleTagClick={() => {}}

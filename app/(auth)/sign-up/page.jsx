@@ -1,14 +1,34 @@
 "use client";
-import React, { useState } from 'react';
+
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { signIn, useSession, getProviders } from 'next-auth/react';
 import { FaGooglePlusG, FaFacebookF, FaGithub, FaLinkedinIn } from 'react-icons/fa';
-import './style.css'; // Ensure this path matches the actual location of your CSS file
+import './style.css';
 
 const Page = () => {
   const [active, setActive] = useState(false);
+  const [providers, setProviders] = useState(null);
+  const router = useRouter();
 
   const toggleClass = () => {
     setActive(!active);
   };
+
+  const { data: session } = useSession();
+  //provider = Object.values(providers)[0];
+  const signInFunc = (provider) =>{
+    signIn(provider.id, { callbackUrl: '/' });
+  }
+
+  useEffect(() => {
+    const setUpProviders = async () => {
+      const response = await getProviders();
+      setProviders(response);
+    };
+
+    setUpProviders();
+  }, []);
 
   return (
     <div className={`container ${active ? 'active' : ''}`} id="container">
@@ -16,7 +36,12 @@ const Page = () => {
         <form>
           <h1>Create Account</h1>
           <div className="social-icons">
-            <a href="#" className="icon"><FaGooglePlusG /></a>
+          {providers && Object.values(providers).map((provider) => (
+                            <a type="button" key={provider.name}
+                            onClick={() => signInFunc(provider)} className='main_btn'>
+                                <FaGooglePlusG />
+                            </a>
+            ))}
             <a href="#" className="icon"><FaFacebookF /></a>
             <a href="#" className="icon"><FaGithub /></a>
             <a href="#" className="icon"><FaLinkedinIn /></a>
@@ -32,7 +57,12 @@ const Page = () => {
         <form>
           <h1>Sign In</h1>
           <div className="social-icons">
-            <a href="#" className="icon"><FaGooglePlusG /></a>
+            {providers && Object.values(providers).map((provider) => (
+                            <a type="button" key={provider.name}
+                                onClick={() => signInFunc(provider)} className='main_btn'>
+                                <FaGooglePlusG />
+                            </a>
+            ))}
             <a href="#" className="icon"><FaFacebookF /></a>
             <a href="#" className="icon"><FaGithub /></a>
             <a href="#" className="icon"><FaLinkedinIn /></a>

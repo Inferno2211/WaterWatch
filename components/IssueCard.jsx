@@ -6,7 +6,7 @@ import Image from "next/image";
 const IssueCard = ({post, handleTagClick}) => {
     console.log(post.image);
     return (
-        <section className="flex justify-center items-center m-10">
+        <section className="flex justify-center items-center">
             <div className="flex flex-col md:flex-row w-full max-w-4xl space-x-4 bg-white shadow-md rounded-lg p-6">
                 <div className="relative w-[69px] h-[69px] bg-[#ccb8f3] opacity-100 overflow-hidden rounded-full flex-shrink-0">
                     <Image

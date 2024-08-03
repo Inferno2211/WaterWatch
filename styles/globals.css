@@ -2,13 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
 }
 
 body {
@@ -26,7 +26,8 @@ nav {
     background-color: white;
     padding: 10px 20px;
     /* border-radius: 20px; */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+    /* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35); */
+    border-bottom: 1px solid #e0e0e0;
 }
 
 nav a {
@@ -108,7 +109,7 @@ nav a:hover {
 }
 
 .main_btn {
-    background-color: #1C617F;
+    background-color: #1c617f;
     color: white;
     border: none;
     padding: 7px 10px;
@@ -132,10 +133,12 @@ nav a:hover {
 .w-full {
     width: 100%;
 }
-p.name{
+
+p.name {
     vertical-align: middle;
     align-self: center;
 }
+
 .vl {
     border-left: 2px solid rgb(134, 134, 134);
     align-self: center;
@@ -144,16 +147,21 @@ p.name{
     margin-right: -5px;
     top: 0;
 }
-.hl{
+
+.hl {
     border-top: 1.5px solid rgb(188, 188, 188);
     width: 100%;
     margin: 10px 0;
 }
-.details-container{
+
+.details-container {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
-.details-container button{
 
+.feed {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
 }

@@ -5,8 +5,6 @@ import Image from "next/image";
 import '@styles/issue.css'
 const Step1 = ({ formData, handleChange, nextStep }) => {
     return (
-        <div className="container">
-            {/* <div className="navbar"></div> */}
             <div className="content">
                 {/* <div className="sidebar"></div> */}
                 <div className="App">
@@ -62,7 +60,6 @@ const Step1 = ({ formData, handleChange, nextStep }) => {
                     Next
                 </button>
                 </div>
-            </div>
             </div>
     );
 };

@@ -1,7 +1,7 @@
 import { Children } from "react"
 import '@styles/globals.css'
 import Header from '@components/Header'
-import Footer from '@components/Footer'
+import Navbar from "@components/Navbar"
 import Provider from "@components/Provider"
 
 export const metadata = {
@@ -19,7 +19,10 @@ const layout = ({children}) => {
 
                     <main className="app">
                         <Header />
-                        {children}
+                        <div className="flex">
+                            <Navbar />
+                            {children}
+                        </div>
                     </main>
                 </Provider>
             </body>
