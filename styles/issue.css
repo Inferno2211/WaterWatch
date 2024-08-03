@@ -157,6 +157,12 @@
 /*Page5 css*/
 .post {
     margin-top: 23rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem;
+    width: 105.3%;
+
 }
 
 /*page3 css*/
@@ -316,3 +322,74 @@
     text-decoration: none;
     align-self: flex-start;
 }
+
+.dropdown {
+    list-style-type: none;
+    border: 1px solid #ccc;
+    background-color: white;
+    position: absolute;
+    z-index: 1000;
+    max-height: 200px;
+    overflow-y: auto;
+    top: 24.7rem;
+    margin-left: 30vw;
+    margin-right: 65.3vw;
+    width: 13rem;
+  }
+  /* ProgressBar.css */
+.progress-bar {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  
+  .step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+  
+  .step-number {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    margin-right: 85px;
+    margin-left: 85px;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  
+  .step-label {
+    margin-top: 5px;
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
+  .progress-line {
+    position: absolute;
+    top: 22.5%;
+    width: 110px;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background-color: #007bff;
+    z-index: -1;
+    margin-left: 300px;
+  }
+  .Two{
+    width: 315px;
+  }
+  .Three{
+    width: 520px;
+  }
+  .Four{
+    width: 725px;
+  }
+  .Five{
+    width: 930px;
+  }
+  
+  
+ 

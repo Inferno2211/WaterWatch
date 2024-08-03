@@ -6,7 +6,7 @@ export const GET = async (request) => {
         await connectToDB();
         console.log('Database connected');
 
-        const issues = await Issue.find({}).populate('creator');
+        const issues = await Issue.find().populate('creator');
 
         return new Response(JSON.stringify(issues), {
             status: 200
