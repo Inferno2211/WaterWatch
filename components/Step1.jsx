@@ -5,14 +5,13 @@ import Image from "next/image";
 import '@styles/issue.css'
 const Step1 = ({ formData, handleChange, nextStep }) => {
     return (
-            <div className="content">
-                {/* <div className="sidebar"></div> */}
-                <div className="App">
-                    <div className="progress-line"></div>
-                    <ProgressBar />
-                </div>
-                {/* <Image src='/assets/images/1.jpg' width={850} height={40}/> */}
+           
                 <div className="main-thing">
+                
+                <div className="App">   
+                        <ProgressBar />
+                        <div className="progress-line"></div>
+                    </div>
                 <div className="text">
                     <span className="text__header">
                     Locate the issue site
@@ -60,7 +59,7 @@ const Step1 = ({ formData, handleChange, nextStep }) => {
                     Next
                 </button>
                 </div>
-            </div>
+            
     );
 };
 

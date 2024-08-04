@@ -6,8 +6,7 @@ import '@styles/issue.css';
 
 const Step4 = ({ formData, handleImageChange, prevStep, handleSubmit, submitting, type, nextStep }) => {
     return(
-        <div className="container">
-            <div className="content">
+        
                 <div className="main">
                 <div className="App">
                         <ProgressBar />
@@ -51,8 +50,7 @@ const Step4 = ({ formData, handleImageChange, prevStep, handleSubmit, submitting
                     </button>
                 </div>
                 </div>
-            </div>
-        </div>
+            
     )
 };
 export default Step4;

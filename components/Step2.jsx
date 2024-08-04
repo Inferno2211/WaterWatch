@@ -28,12 +28,9 @@ const Step2 = ({ formData, handleChange, nextStep, prevStep }) => {
         setDropdownVisible(false);
     };
     return (
-        <div className="container">
-            {/* <div className="navbar"></div> */}
-            <div className="content">
-                {/* <div className="sidebar"></div> */}
+        
                 <div className="main">
-                    <div className="App">
+                    <div className="App">   
                         <ProgressBar />
                         <div className="progress-line Two"></div>
                     </div>
@@ -49,13 +46,14 @@ const Step2 = ({ formData, handleChange, nextStep, prevStep }) => {
                         </span>
                     </div>
                     <div className="container__3">
+                        <div className='details'>
                         <input
                             type="text"
                             placeholder={selectedCategory ? ` ${selectedCategory}` : 'Add title here'}
                             value={formData.title}
                             onChange={handleChange('title')}
                             className="w-full border border-gray-300 rounded p-2 focus:outline-none focus:border-blue-500 mb-4"
-                        />
+                        /></div>
                         <div className="category">
                             <span>Category</span>
                             <button className="label__btn" onClick={handleButtonClick}>+ Add label</button>
@@ -89,7 +87,7 @@ const Step2 = ({ formData, handleChange, nextStep, prevStep }) => {
                             />
                         </div>
                     </div>
-                    <div className='btn-row flex'>
+                    <div className='btn-row'>
                         <button
                             onClick={prevStep}
                             className="btn bg-gray-500 text-white py-2 px-12 rounded focus:outline-none"
@@ -98,13 +96,12 @@ const Step2 = ({ formData, handleChange, nextStep, prevStep }) => {
                         </button>
                         <button
                             onClick={nextStep}
-                            className="btn bg-blue-500 text-white py-2 px-12 rounded focus:outline-none mr-12">
+                            className="btn bg-blue-500 text-white py-2 px-12 rounded focus:outline-none mr-9">
                             Next
                         </button>
                     </div>
                 </div>
-            </div>
-        </div>
+            
     );
 };
 export default Step2;
