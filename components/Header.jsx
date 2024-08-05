@@ -8,9 +8,8 @@ import "@styles/header.css";
 const Header = () => {
     const { data: session } = useSession();
     const [searchQuery, setSearchQuery] = useState('');
-
     const [providers, setProviders] = useState(null);
-    const [toggleDropdown, setToggleDropdown] = useState(false);
+
     const handleNotificationClick = () => {
         window.location.href = 'notifications.html'; // Replace with your actual URL
     };

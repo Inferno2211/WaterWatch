@@ -56,7 +56,7 @@ const Feed = () => {
                 Toggle Layout
             </button>
 
-            <section className='m-5 w-full'>
+            <section className='mx-5 w-full'>
                 <IssueCardList
                     data={posts}
                     handleTagClick={() => { }}
