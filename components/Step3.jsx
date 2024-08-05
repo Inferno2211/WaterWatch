@@ -28,8 +28,7 @@ const Step3 = ({ formData, handleImageChange, prevStep, handleSubmit, submitting
             {/* <div className="navbar"> */}
             {/* </div> */}
             <div className="content">
-                {/* <div className="sidebar">
-                </div> */}
+               
                 <div className="main">
                 <div className="App">
                         <ProgressBar />
@@ -44,9 +43,7 @@ const Step3 = ({ formData, handleImageChange, prevStep, handleSubmit, submitting
                         </span>
                     </div>
                     <div className="upload">
-                        <div className="upload__image">
-                            <Image src="/assets/image/upload.png" width={104} height={104} alt="Upload" />
-                        </div>
+                        
                         <div
                             className="upload"
                             onDrop={handleDrop}
@@ -70,16 +67,16 @@ const Step3 = ({ formData, handleImageChange, prevStep, handleSubmit, submitting
                         </div>
                     </div>
                 </div>
-                <div className='btn-row flex'>
+                <div className='btn-row'>
                     <button
                         onClick={prevStep}
-                        className="btn bg-gray-500 text-white py-2 px-12 rounded focus:outline-none"
+                        className="btn bg-gray-500 text-white py-2 px-12 rounded focus:outline-none mt-7"
                     >
                         Back
                     </button>
                     <button
                         onClick={nextStep}
-                        className="btn bg-blue-500 text-white py-2 px-12 rounded focus:outline-none mr-12">
+                        className="btn bg-blue-500 text-white py-2 px-12 rounded focus:outline-none mt-7">
                         Next
                     </button>
                 </div>

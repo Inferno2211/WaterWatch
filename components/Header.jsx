@@ -50,7 +50,7 @@ const Header = () => {
 
             {/* Desk nav */}
                     <header>
-                        <Link href='/' className="logo">WaterWatch</Link>
+                        <div className="logo">WaterWatch</div>
                         <div className="header-search-bar">
                             <input
                                 type="text"
@@ -76,9 +76,10 @@ const Header = () => {
                                 <i className="fa-regular fa-comment-dots"></i>
                             </button>
                         </div>
+
                         <div className="user">
                             {session?.user ? (
-                                <div className='sm:flex hidden flex-center gap-5'>
+                                <div className='sm:flex flex-center gap-5'>
                                     <div className="vl"></div>
                                     <p className='name'>{session?.user.name}</p>
                                     <Link href='/your-posts' className=''>
@@ -92,17 +93,14 @@ const Header = () => {
                                     </Link>
                                 </div>
                             ) : (
-                            <Link href="/sign-up" className='main_btn'>
-                                Sign In
-                            </Link>)
-                            }
-                            
+                            <></>
+                            )}
                         </div>
                     </header>
                     
 
             {/* Mob nav */}
-            <div className="sm:hidden flex relative">
+            {/* <div className="sm:hidden flex relative">
                 {session?.user ? (
                     <div className="flex" >
                         <Image
@@ -152,7 +150,7 @@ const Header = () => {
                         ))}
                     </>
                 )}
-            </div>
+            </div> */}
         </nav>
     );
 };

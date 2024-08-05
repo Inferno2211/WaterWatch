@@ -54,7 +54,7 @@ header {
     padding: 5px 10px;
     border: none;
     background-color: #1C617F;
-    color: #fff;
+    color: #ffffff;
     cursor: pointer;
 }
 
@@ -132,6 +132,14 @@ header {
     flex: 1;
 }
 
+.sty{
+    display: block;
+    text-decoration: none;
+    color: #333;
+    padding: 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
 aside {
     width: 200px;
     background-color: #fff;
@@ -139,17 +147,8 @@ aside {
     border-right: 1px solid #e0e0e0;
 }
 
-aside nav a {
-    display: block;
-    margin-bottom: 10px;
-    text-decoration: none;
-    color: #333;
-    padding: 10px;
-    border-radius: 4px;
-    transition: background-color 0.3s;
-}
 
-aside nav a:hover {
+.sty:hover {
     background-color: #f0f0f0;
 }
 
@@ -179,7 +178,7 @@ aside nav a:hover {
 
 .sidebar-bottom button {
     background-color: #1C617F;
-    color: #ddd;
+    color: #ffffff;
     border: none;
     padding: 10px;
     display: flex;

@@ -6,26 +6,21 @@
     font-family: "Lexend", sans-serif;
     align-items: center;
 }
-.content{
-    width: 850px;
-}
+
 .main-thing {
     display: flex;
     flex-direction: column;
     align-items: center;
     /* margin-left: 10rem; */
-    margin-top: 3rem;
+    
 }
 
-.navbar {
-    width: 100%;
-    height: 7vh;
-    background: white;
-}
+
 .btn{
     font-size: 20px;
 }
 .btn-row{
+    display: flex;
     justify-content: space-between;
 }
 .sidebar {
@@ -48,7 +43,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-bottom: 2rem;
+    margin-top: 50px;
 }
 
 .text__sub {
@@ -57,6 +52,7 @@
     font-size: 1.05rem;
     font-weight: 400;
     margin-top: 8px;
+    margin-bottom: 15px;
 }
 
 .maps {
@@ -167,14 +163,13 @@
 
 /*page3 css*/
 .upload {
-    width: 732px;
+    width: 100%;
     height: 300px;
     background-color: #f5f1fe80;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-bottom: 40px;
 }
 
 .browse__files {
@@ -191,11 +186,14 @@
     height: 350px;
     display: flex;
     flex-direction: column;
-    align-items: left;
-    justify-content: left;
+    
     margin-top: 30px;
 }
-
+.details{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .title {
     font-size: 24px;
     font-weight: bold;
@@ -336,11 +334,13 @@
     margin-right: 65.3vw;
     width: 13rem;
   }
-  /* ProgressBar.css */
+  /* ggressBar.css */
 .progress-bar {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     position: relative;
+    
   }
   
   .step {
@@ -368,15 +368,14 @@
   }
   
   .progress-line {
-    position: absolute;
     top: 22.5%;
     width: 110px;
-    left: 0;
-    right: 0;
+    
     height: 5px;
     background-color: #007bff;
     z-index: -1;
-    margin-left: 300px;
+    margin-left: 70px;
+    margin-top: 2px;
   }
   .Two{
     width: 315px;
