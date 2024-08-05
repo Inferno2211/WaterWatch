@@ -54,7 +54,7 @@ header {
     padding: 5px 10px;
     border: none;
     background-color: #1C617F;
-    color: #fff;
+    color: #ffffff;
     cursor: pointer;
 }
 
@@ -178,7 +178,7 @@ aside {
 
 .sidebar-bottom button {
     background-color: #1C617F;
-    color: #ddd;
+    color: #ffffff;
     border: none;
     padding: 10px;
     display: flex;
