@@ -38,7 +38,7 @@ const Page = () => {
           <div className="social-icons">
           {providers && Object.values(providers).map((provider) => (
                             <a type="button" key={provider.name}
-                            onClick={() => signInFunc(provider)} className='main_btn'>
+                            onClick={() => signInFunc(provider)} className='icon'>
                                 <FaGooglePlusG />
                             </a>
             ))}
@@ -59,7 +59,7 @@ const Page = () => {
           <div className="social-icons">
             {providers && Object.values(providers).map((provider) => (
                             <a type="button" key={provider.name}
-                                onClick={() => signInFunc(provider)} className='main_btn'>
+                                onClick={() => signInFunc(provider)} className='icon'>
                                 <FaGooglePlusG />
                             </a>
             ))}

@@ -5,23 +5,23 @@ import Image from "next/image";
 import '@styles/issue.css'
 const Step1 = ({ formData, handleChange, nextStep }) => {
     return (
-           
-                <div className="main-thing">
-                
-                <div className="App">   
-                        <ProgressBar />
-                        <div className="progress-line"></div>
-                    </div>
-                <div className="text">
-                    <span className="text__header">
+
+        <div className="main-thing">
+
+            <div className="App">
+                <ProgressBar />
+                <div className="progress-line"></div>
+            </div>
+            <div className="text">
+                <span className="text__header">
                     Locate the issue site
-                    </span>
-                    <span className="text__sub">
+                </span>
+                <span className="text__sub">
                     Make your problems heard to the right people.
-                    </span>
-                </div>
-                <div className="maps">
-                    <div className="search">
+                </span>
+            </div>
+            <div className="maps">
+                <div className="search">
                     <span className="search__header">
                         Enter a nearby postcode, or street name and area:
                     </span>
@@ -35,31 +35,31 @@ const Step1 = ({ formData, handleChange, nextStep }) => {
                             value={formData.location}
                             onChange={handleChange('location')}
                             className="w-full border border-gray-300 rounded p-2 focus:outline-none focus:border-blue-500"
-                            />
+                        />
                         <div className="go">
-                        Go
+                            Go
                         </div>
                     </div>
-                    </div>
-                    <div className="map">
-                    <Image src="/assets/images/map.png" width={400} height={380}/> 
-                    </div>
                 </div>
-                <div className="warning mb-6">
-                    <div className="warning__header">
+                <div className="map">
+                    <Image src="/assets/images/map.png" width={400} height={380} />
+                </div>
+            </div>
+            <div className="warning mb-6">
+                <div className="warning__header">
                     Message from General Council
-                    </div>
-                    <div className="warning__sub">
+                </div>
+                <div className="warning__sub">
                     If you are reporting an issue you consider to be dangerous or an emergency please call our Out of Hours Team on 0300 303 8671.
-                    </div>
                 </div>
-                <button
-                    onClick={nextStep}
-                    className="next-btn bg-blue-500 text-white py-2 px-12 rounded focus:outline-none">
-                    Next
-                </button>
-                </div>
-            
+            </div>
+            <button
+                onClick={nextStep}
+                className="next-btn bg-blue-500 text-white py-2 px-12 rounded focus:outline-none">
+                Next
+            </button>
+        </div>
+
     );
 };
 

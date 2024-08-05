@@ -1,46 +1,69 @@
 "use client";
 
-import { useState, useEffect} from 'react'
+import { useState, useEffect } from 'react';
 import IssueCard from './IssueCard';
-import { handleClientScriptLoad } from 'next/script';
+import IssueCardFull from './IssueCardFull';
 import '@styles/globals.css';
 
-export const IssueCardList = ({ data, handleTagClick, filter }) => {
+export const IssueCardList = ({ data, handleTagClick, isFullWidth }) => {
     return (
-        <div className='feed'>
+        <div className='feed justify-center m-5'>
             {data.map((post) => (
-                <IssueCard 
-                    key={post._id}
-                    post={post}
-                    handleTagClick={handleTagClick}
-                />
+                isFullWidth ? (
+                    <IssueCardFull
+                        key={post._id}
+                        post={post}
+                        handleTagClick={handleTagClick}
+                    />
+                ) : (
+                    <IssueCard
+                        key={post._id}
+                        post={post}
+                        handleTagClick={handleTagClick}
+                    />
+                )
             ))}
         </div>
     );
 };
 
 const Feed = () => {
-    const [searchText, setSearchText] = useState('');
     const [posts, setPosts] = useState([]);
+    const [isFullWidth, setIsFullWidth] = useState(false);
+
+    const toggleLayout = () => {
+        setIsFullWidth(prevState => !prevState);
+        console.log(isFullWidth);
+    };
+
     useEffect(() => {
         const fetchIssues = async () => {
             const response = await fetch('api/issue');
             const data = await response.json();
             console.log(data);
-
             setPosts(data);
-        }
+        };
 
         fetchIssues();
     }, []);
 
     return (
-        <section className='m-5'>
-            <IssueCardList
-                data={posts}
-                handleTagClick={() => {}}
-            />
-        </section>
+        <div className="flex flex-col items-center mt-5">
+            <button
+                onClick={toggleLayout}
+                className="mb-4 px-4 py-2 bg-blue-500 text-white rounded self-end mr-10"
+            >
+                Toggle Layout
+            </button>
+
+            <section className='m-5 w-full'>
+                <IssueCardList
+                    data={posts}
+                    handleTagClick={() => { }}
+                    isFullWidth={isFullWidth}
+                />
+            </section>
+        </div>
     );
 };
 

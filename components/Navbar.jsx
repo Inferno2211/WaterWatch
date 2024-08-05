@@ -14,7 +14,7 @@ const Navbar = () => {
                 <a className='sty' href="#">Explore</a>
                 <a className='sty' href="/your-posts">Your Posts</a>
             </div>
-            <div className="sidebar-bottom">
+            <div className="sidebar-bottom mb-2">
                 <Link href="/create-issue" ><button className="report-button">Report an Issue</button></Link>
                 {session?.user ? (
                     <button className="logout-button" onClick={() => {

@@ -133,6 +133,7 @@ body{
 
 .social-icons{
     margin: 20px 0;
+    cursor: pointer;
 }
 
 .social-icons a{

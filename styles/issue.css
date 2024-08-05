@@ -12,17 +12,17 @@
     flex-direction: column;
     align-items: center;
     /* margin-left: 10rem; */
-    
 }
 
-
-.btn{
+.btn {
     font-size: 20px;
 }
-.btn-row{
+
+.btn-row {
     display: flex;
     justify-content: space-between;
 }
+
 .sidebar {
     width: 18%;
     height: 93vh;
@@ -59,11 +59,15 @@
     display: flex;
     width: 90%;
     margin-bottom: 2rem;
+    border: 2px solid #7777773a;
+    padding: 15px 0;
+    padding-left: 15px;
+    border-radius: 5px;
 }
 
 .image {
     margin-bottom: 1.2rem;
-    object-fit:fill;
+    object-fit: fill;
 }
 
 .search {
@@ -158,7 +162,6 @@
     justify-content: center;
     padding: 0.6rem;
     width: 105.3%;
-
 }
 
 /*page3 css*/
@@ -174,6 +177,10 @@
 
 .browse__files {
     width: 20%;
+    color: #ffffff;
+}
+.next:hover{
+    background-color: #5d26d3;
 }
 
 .text__or {
@@ -186,14 +193,16 @@
     height: 350px;
     display: flex;
     flex-direction: column;
-    
+
     margin-top: 30px;
 }
-.details{
+
+.details {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .title {
     font-size: 24px;
     font-weight: bold;
@@ -211,9 +220,18 @@
     font-size: 14px;
     color: #777;
 }
-
+.category p{
+    padding: 3px 6px;
+    background-color: rgb(221, 221, 221);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+    margin-right: 5px;
+}
 .label__btn {
-    padding: 5px 10px;
+    padding: 3px 6px;
     background-color: #f0f0f0;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -301,7 +319,9 @@
     color: #007bff;
     margin-left: 5px;
 }
-
+.dropdown-item{
+    cursor: pointer;
+}
 .position {
     font-size: 14px;
     color: #555555;
@@ -333,24 +353,24 @@
     margin-left: 30vw;
     margin-right: 65.3vw;
     width: 13rem;
-  }
-  /* ggressBar.css */
+}
+
+/* ggressBar.css */
 .progress-bar {
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: relative;
-    
-  }
-  
-  .step {
+}
+
+.step {
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
-  }
-  
-  .step-number {
+}
+
+.step-number {
     background-color: #007bff;
     color: white;
     padding: 10px;
@@ -359,36 +379,37 @@
     border-radius: 50%;
     font-weight: bold;
     font-size: 16px;
-  }
-  
-  .step-label {
+}
+
+.step-label {
     margin-top: 5px;
-    font-size: 14px;
+    font-size: 1F4px;
     margin-bottom: 5px;
-  }
-  
-  .progress-line {
+}
+
+.progress-line {
     top: 22.5%;
     width: 110px;
-    
+
     height: 5px;
     background-color: #007bff;
     z-index: -1;
     margin-left: 70px;
     margin-top: 2px;
-  }
-  .Two{
+}
+
+.Two {
     width: 315px;
-  }
-  .Three{
+}
+
+.Three {
     width: 520px;
-  }
-  .Four{
+}
+
+.Four {
     width: 725px;
-  }
-  .Five{
+}
+
+.Five {
     width: 930px;
-  }
-  
-  
- 
+}

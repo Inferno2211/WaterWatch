@@ -1,36 +1,27 @@
-import React, { useRef } from 'react';
+import { useRef, useState } from 'react';
 import ProgressBar from './ProgressBar';
 import Image from 'next/image';
 import { Opacity } from '@mui/icons-material';
 
-const Step3 = ({ formData, handleImageChange, prevStep, handleSubmit, submitting, type, nextStep }) => {
-    const handleDrop = (e) => {
-        e.preventDefault();
-        const file = e.dataTransfer.files[0];
+const Step3 = ({ formData, handleImageChange, prevStep, nextStep }) => {
+    const [imagePreview, setImagePreview] = useState(formData.image);
+
+    const imageChange = (event) => {
+        const file = event.target.files[0];
         if (file) {
-            setFile(file);
-            // Add your logic to handle the file
-            console.log(file);
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setImagePreview(reader.result);
+            };
+            reader.readAsDataURL(file);
         }
-    };
-    const fileInputRef = useRef(null);
-
-    const handleBrowseClick = (e) => {
-        e.preventDefault();
-        fileInputRef.current.click();
-    };
-
-    const handleDragOver = (e) => {
-        e.preventDefault();
+        handleImageChange(event);
     };
     return (
         <div className="container">
-            {/* <div className="navbar"> */}
-            {/* </div> */}
             <div className="content">
-               
                 <div className="main">
-                <div className="App">
+                    <div className="App">
                         <ProgressBar />
                         <div className="progress-line Three"></div>
                     </div>
@@ -43,28 +34,40 @@ const Step3 = ({ formData, handleImageChange, prevStep, handleSubmit, submitting
                         </span>
                     </div>
                     <div className="upload">
-                        
-                        <div
+
+                        {/* <div
                             className="upload"
                             onDrop={handleDrop}
                             onDragOver={handleDragOver}
-                        >
-                            <input
-                                type="file"
-                                id="image"
-                                ref={fileInputRef}
-                                onChange={handleImageChange}
-                                style={{opacity : 0}}
-                                className="block w-full text-sm text-gray-500 file:py-2 file:px-4 file:border file:border-gray-300 file:rounded-md file:bg-gray-50 file:text-gray-700 hover:file:bg-gray-100"
-                            />
-                            <div className="text__upload">
+                        > */}
+                        <label htmlFor="image"
+                            className="browse__files next cursor-pointer block w-full text-sm py-2 px-4 border border-gray-300 rounded-md bg-gray-50">
+                            Browse Files
+                        </label>
+
+                        <input
+                            type="file"
+                            id="image"
+                            onChange={imageChange}
+                            style={{ display: 'none' }}
+                        />
+                        {imagePreview && (
+                            <div className="mt-4">
+                                <img
+                                    src={imagePreview}
+                                    alt="Selected"
+                                    className="w-32 h-32 object-cover border border-gray-300 rounded-md"
+                                />
+                            </div>
+                        )}
+                        {/* <div className="text__upload">
                                 Drag & drop your files here
                             </div>
                             <div className="text__or">OR</div>
                             <div className="browse__files next">
                                 <a href="#" onClick={handleBrowseClick}>Browse Files</a>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
                 <div className='btn-row'>
