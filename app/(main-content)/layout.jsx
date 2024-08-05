@@ -6,7 +6,7 @@ import Provider from "@components/Provider"
 
 export const metadata = {
     title: "WaterWatch",
-    description: "Womp womp niga"
+    description: "Make your problems heard to the right people"
 }
 
 const layout = ({children}) => {
