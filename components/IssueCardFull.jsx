@@ -23,7 +23,7 @@ const IssueCardFullWidth = ({ post, handleTagClick }) => {
                             {post.title}
                         </p>
                         <p className="text-xs font-normal text-gray-600 font-manrope">
-                            {post.date}, {post.time}
+                            {post.date} {post.time}
                         </p>
                     </div>
                 </div>

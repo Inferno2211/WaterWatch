@@ -1,6 +1,8 @@
 import { connectToDB } from "@utils/database";
 import Issue from "@models/issue";
 
+export const revalidate = 0;
+
 export const GET = async (request) => {
     try {
         await connectToDB();

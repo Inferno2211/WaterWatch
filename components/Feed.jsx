@@ -33,7 +33,6 @@ const Feed = () => {
 
     const toggleLayout = () => {
         setIsFullWidth(prevState => !prevState);
-        console.log(isFullWidth);
     };
 
     useEffect(() => {
