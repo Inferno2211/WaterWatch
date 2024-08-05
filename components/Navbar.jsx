@@ -8,7 +8,7 @@ import { signIn, signOut, useSession, getProviders } from 'next-auth/react';
 const Navbar = () => {
     const { data: session } = useSession();
     return (
-        <nav className="sidebar">
+        <nav className="sidebar fixed-navbar">
             <div className='mt-4 container'>
                 <a className='sty' href="/">Home</a>
                 <a className='sty' href="#">Explore</a>

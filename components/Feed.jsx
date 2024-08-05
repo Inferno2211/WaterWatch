@@ -5,7 +5,7 @@ import IssueCard from './IssueCard';
 import { handleClientScriptLoad } from 'next/script';
 import '@styles/globals.css';
 
-const IssueCardList = ({ data, handleTagClick }) => {
+export const IssueCardList = ({ data, handleTagClick, filter }) => {
     return (
         <div className='feed'>
             {data.map((post) => (

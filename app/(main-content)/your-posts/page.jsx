@@ -1,24 +1,11 @@
 "use client";
 
 import IssueCard from '@components/IssueCard';
+import { IssueCardList } from '@components/Feed';
 import React, { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import './style.css';
-
-const IssueCardList = ({ data, handleTagClick }) => {
-        return (
-            <div className='flex mt-16 prompt_layout'>
-                {data.map((post) => (
-                    <IssueCard 
-                        key={post._id}
-                        post={post}
-                        handleTagClick={handleTagClick}
-                    />
-                ))}
-            </div>
-        );
-    };
 
 const YourPosts = () => {
     const [activeTab, setActiveTab] = useState('#security');
@@ -47,18 +34,15 @@ const YourPosts = () => {
         fetchIssues();
     }, []);
 
-
-    
-    
     return (
-        <div className="pl-0 md:pl-64 transition-all" id="main">
+        <div className="pl-0 transition-all w-full" id="main">
             <div className="p-4">
                 <div className="relative">
-                    <Image src="/assets/images/bg.svg" 
-                    className="w-full h-72 object-cover rounded-lg" 
-                    alt="" 
-                    width={0}
-                    height={72}
+                    <Image src="/assets/images/bg.svg"
+                        className="w-full h-72 object-cover rounded-lg"
+                        alt=""
+                        width={0}
+                        height={72}
                     // sizes="100vw"
                     // style={{ width: '100%', height: 'auto' }}
                     />
@@ -70,8 +54,8 @@ const YourPosts = () => {
                         alt=""
                         width={256}
                         height={256}
-                        // sizes="100vw"
-                        // style={{ width: '100%', height: 'auto' }}
+                    // sizes="100vw"
+                    // style={{ width: '100%', height: 'auto' }}
                     />
                 </div>
                 <div className="flex items-center justify-center">
@@ -101,11 +85,11 @@ const YourPosts = () => {
                         Your Replies
                     </span>
                 </div>
-                <div id="security" className={`tab-content ${activeTab === '#security' ? '' : 'hidden'}`}>
-                <IssueCardList
-                data={posts}
-                handleTagClick={() => {}}
-                />  
+                <div id="security" className={`tab-content mt-6 ${activeTab === '#security' ? '' : 'hidden'}`}>
+                    <IssueCardList
+                        data={posts.filter(post => session?.user.email === post.creator.email)}
+                        handleTagClick={() => { }}
+                    />
                 </div>
                 <div id="activities" className={`tab-content ${activeTab === '#activities' ? '' : 'hidden'}`}>
                     {/* Your Replies content here */}

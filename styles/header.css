@@ -25,7 +25,17 @@ header {
     height: 50px;
     width: 100%;
 }
-
+.fixed-header, .fixed-navbar{
+    position: sticky;
+    z-index: 1000;
+}
+.fixed-header{
+    top: 0;
+}
+.fixed-navbar{
+    top: 70px;
+    /* bottom: 0px; */
+}
 .logo {
     font-size: 24px;
     font-weight: bold;

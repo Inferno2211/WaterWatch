@@ -43,7 +43,7 @@ const Header = () => {
     }, []);
 
     return (
-        <nav className='flex-between w-full pt-3'>
+        <nav className='flex-between w-full pt-3 fixed-header'>
             {/* <Link href='/' className='flex gap-2 flex-center'>
                 <h1>WaterWatch</h1>
             </Link> */}
